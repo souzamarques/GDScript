@@ -1,9 +1,23 @@
 extends Node
 
-var health: int = 100 # Specified type. "health" always stay an integer.
-var damage := 10 # Inver typing. Godot automatically determine the data type.
-@export var heavy_damage := 30 # The value set in the script will just be the default value. The value can be changed in the inspector
-const GRAVITY = -9.81
+func _ready():
+	Sum(30, 20)
+	Sum(48, 24)
 
-func _readY():
-	pass
+func _input(event):
+	if(event.is_action_pressed("my_action")):
+		Jump()
+
+func Sum(n1, n2):
+	print("Result Sum: " + str(n1 + n2))
+	
+	var sub1 = n1
+	var sub2 = n2
+	Sub(sub1, sub2)
+	print("Result Sub: " + str(n1 -n2))
+	
+func Sub(n1: int, n2: int) -> int: # statically typed parameters
+	return n1 - n2
+
+func Jump():
+	print("JUMP!")
