@@ -1,23 +1,9 @@
 extends Node
 
-var health = 100
-var game_over = false
+var health: int = 100 # Specified type. "health" always stay an integer.
+var damage := 10 # Inver typing. Godot automatically determine the data type.
+@export var heavy_damage := 30 # The value set in the script will just be the default value. The value can be changed in the inspector
+const GRAVITY = -9.81
 
-func _input(event):
-	# Test test test
-	if event.is_action_pressed("my_action") and not game_over:
-		health -= 10
-		if(health <= 0):
-			print(health)
-			print("YOU DIED!")
-			print("GAME OVER")
-			game_over = true
-		elif(health == 30):
-			print("You are injured!")
-			print(health)
-		elif(health == 10):
-			print("You are in really bad shape!")
-			print(health)
-		else:
-			print(health)
-	
+func _readY():
+	pass
