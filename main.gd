@@ -1,23 +1,18 @@
 extends Node
 
 func _ready():
-	Sum(30, 20)
-	Sum(48, 24)
-
-func _input(event):
-	if(event.is_action_pressed("my_action")):
-		Jump()
-
-func Sum(n1, n2):
-	print("Result Sum: " + str(n1 + n2))
+	var lucky_number = randf()
+	print("Lucky lucky: " + str(lucky_number))
 	
-	var sub1 = n1
-	var sub2 = n2
-	Sub(sub1, sub2)
-	print("Result Sub: " + str(n1 -n2))
+	var roll = randi_range(2, 12) # randi: random INTEGER between 2 and 12
+	if(roll >= 2) and (roll <= 5):
+		print("Roll result: " + str(roll) + ". Too bad")
+	elif(roll >= 6) and (roll <= 9):
+		print("Roll result: " + str(roll) + ". Good")
+	elif(roll >= 10) and (roll <= 11):
+		print("Roll result: " + str(roll) + ". That was close!")
+	else:
+		print("Roll result: " + str(roll) + ". CONGRATS!!")
 	
-func Sub(n1: int, n2: int) -> int: # statically typed parameters
-	return n1 - n2
-
-func Jump():
-	print("JUMP!")
+	var height_character = randf_range(1.40, 2.20) #
+	print("Character height: " + str("%0.2f" % height_character) + "m")
