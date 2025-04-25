@@ -4,6 +4,8 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
+mage_spells = 2
+mage_illusion = 4
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
