@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dwoi0hkhn285n" path="res://main.gd" id="1_ig7tw"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("node_enemy")]
 script = ExtResource("1_ig7tw")
-mage_spells = 2
-mage_illusion = 4
+node_enemy = NodePath("Enemy")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -23,3 +22,11 @@ theme_override_font_sizes/font_size = 16
 text = "This is a Label"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Weapon" type="Node" parent="Player"]
+
+[node name="Graphics" type="Node" parent="Player"]
+
+[node name="Enemy" type="Node" parent="."]
