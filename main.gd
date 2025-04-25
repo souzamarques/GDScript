@@ -1,18 +1,19 @@
 extends Node
 
 func _ready():
-	var lucky_number = randf()
-	print("Lucky lucky: " + str(lucky_number))
+	var item = ["Potion", 3, 6]
+	var shields: Array[String] = ["Leather Shield", "Wooden Shield", "Iron Shield", "Bronze Shield"] # Array with specified type
+	print(item[0])
+	print(shields)
 	
-	var roll = randi_range(2, 12) # randi: random INTEGER between 2 and 12
-	if(roll >= 2) and (roll <= 5):
-		print("Roll result: " + str(roll) + ". Too bad")
-	elif(roll >= 6) and (roll <= 9):
-		print("Roll result: " + str(roll) + ". Good")
-	elif(roll >= 10) and (roll <= 11):
-		print("Roll result: " + str(roll) + ". That was close!")
-	else:
-		print("Roll result: " + str(roll) + ". CONGRATS!!")
-	
-	var height_character = randf_range(1.40, 2.20) #
-	print("Character height: " + str("%0.2f" % height_character) + "m")
+	shields.remove_at(3)
+	shields.append("Dwarven Shield")
+	print("Shields: " + str(shields))
+
+	for i in item:
+		print(i)
+		
+	var glass := 0.0
+	while glass < 0.5:
+		glass += randf_range(0.1, 0.2)
+		print(glass)
