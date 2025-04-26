@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwoi0hkhn285n" path="res://main.gd" id="1_ig7tw"]
 
-[node name="Main" type="Node" node_paths=PackedStringArray("node_enemy")]
+[node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
-node_enemy = NodePath("Enemy")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -30,3 +29,14 @@ vertical_alignment = 1
 [node name="Graphics" type="Node" parent="Player"]
 
 [node name="Enemy" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Press press"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
