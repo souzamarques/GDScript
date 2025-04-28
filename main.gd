@@ -1,23 +1,24 @@
 extends Node
 
-signal leveled_up(msg)
+signal health_changed(new_health)
 
-var xp := 0
+var health := 100:
+	set(value):
+		health = clamp(value, 0, 100) # makes sure "health" does never exceed 100 or go below 0
+		health_changed.emit(health)
+
+var chance := 0.2
+var chance_pct: int:
+	get:
+		return chance * 100
+	set(value):
+		chance = float(value) / 100.0
 
 func _ready():
-	leveled_up.connect(_on_leveled_up)
+	health = -150
+	print("Percentage chance: " + str(chance_pct) + "%")
+	chance_pct = 75
+	print("New percentage chance: " + str(chance_pct) + "%")
 
-# func _on_button_pressed() -> void:
-#	print("Test test")
-
-func _on_timer_timeout() -> void:
-	xp += 5
-	print(xp)
-	if xp > 0 and xp < 20:
-		print("Test reached a new level!")
-	else:
-		xp = 0
-		leveled_up.emit("Nice!")
-
-func _on_leveled_up(msg):
-	print(msg)
+func _on_health_changed(new_health: Variant) -> void:
+	print(new_health)
