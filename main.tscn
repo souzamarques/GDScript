@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cera377siu1x5"]
+[gd_scene load_steps=3 format=3 uid="uid://cera377siu1x5"]
 
 [ext_resource type="Script" uid="uid://dwoi0hkhn285n" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://df66lr0objh4m" path="res://character.gd" id="2_0xm2m"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" node_paths=PackedStringArray("character_to_kill")]
 script = ExtResource("1_ig7tw")
+character_to_kill = NodePath("Character3")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -38,6 +40,20 @@ text = "Press press"
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="health_changed" from="." to="." method="_on_health_changed"]
+[node name="Character" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+profession = "Potion Seller"
+health = 40
+
+[node name="Character2" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+profession = "Ex-adventurer"
+health = 40
+
+[node name="Character3" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+profession = "Knight"
+health = 40
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
